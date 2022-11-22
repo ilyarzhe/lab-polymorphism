@@ -1,6 +1,9 @@
+package models;
+
+
 import java.time.LocalDate;
 
-public class Office extends Building{
+public class Office extends Building {
     private String companyName;
     private  double monthlyLease;
     public Office(int numberOfRooms, LocalDate dateOfConstruction, int numberOfOccupants,String companyName, double monthlyLease){
@@ -19,5 +22,8 @@ public class Office extends Building{
     }
     public void setMonthlyLease(double amount){
         this.monthlyLease = amount;
+    }
+    public boolean isOld(){
+        return (LocalDate.now().getYear() - this.getDateOfConstruction().getYear())>15;
     }
 }

@@ -1,3 +1,5 @@
+package models;
+
 import java.time.LocalDate;
 
 public abstract class Building {
@@ -24,11 +26,18 @@ public abstract class Building {
     public void setNumberOfOccupants(int numberOfOccupants) {
         this.numberOfOccupants = numberOfOccupants;
     }
+    public void setDateOfConstruction(LocalDate date){
+        this.dateOfConstruction = date;
+    }
     public void addOccpuants(int amount){
         this.numberOfOccupants+=amount;
     }
     public boolean isOverPopulated(){
         return this.numberOfOccupants>this.numberOfRooms;
     }
+    public boolean isOverPopulated(int scaleFactor){
+        return this.numberOfOccupants>(this.numberOfRooms*scaleFactor);
+    }
+    public abstract boolean isOld();
 
 }
